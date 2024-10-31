@@ -18,9 +18,11 @@ class Library {
 
     public void displayAvailableItems(String itemType) {
         System.out.println("Available Items:");
-        for (Item item : items.values()) {
+        Item item = null;
+        for (String key : items.keySet()) {
+            item = items.get(key);
             if (!item.isRented() && item.getType().equalsIgnoreCase(itemType)) {
-                System.out.println(item);
+                System.out.println(item + "(Id: " + key + ")");
             }
         }
     }
